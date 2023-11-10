@@ -43,7 +43,10 @@ otpRouter.post("/generate-otp", async (req, res) => {
         })
         .then((message) => {
           console.log(`Message sent to ${identifier} with SID: ${message.sid}`);
-          res.json({ message: "OTP generated and stored successfully" });
+          res.json({
+            message: "OTP generated and stored successfully",
+            appId: appId,
+          });
         })
         .catch((error) => {
           console.error(
@@ -75,7 +78,10 @@ otpRouter.post("/generate-otp", async (req, res) => {
           console.log(
             `Email sent to ${identifier} with response: ${info.response}`
           );
-          res.json({ message: "OTP generated and stored successfully" });
+          res.json({
+            message: "OTP generated and stored successfully",
+            appId: appId,
+          });
         }
       });
     }
